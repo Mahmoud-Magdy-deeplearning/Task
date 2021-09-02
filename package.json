@@ -1,0 +1,40 @@
+{
+  "name": "first",
+  "version": "1.0.0",
+  "description": "first phase of the challenge day",
+  "main": "index.js",
+  "scripts": {
+    "start": "node Backend/server.js",
+    "server": "nodemon Backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mahmoud-Magdy-deeplearning/Challenge-day.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "Mahmoud Magdy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mahmoud-Magdy-deeplearning/Challenge-day/issues"
+  },
+  "homepage": "https://github.com/Mahmoud-Magdy-deeplearning/Challenge-day#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "filepond": "^4.29.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "mongoose": "^5.7.7",
+    "multer": "^1.4.3",
+    "querystring": "^0.2.1"
+  }
+}
