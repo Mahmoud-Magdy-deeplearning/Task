@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter  as Router, Switch, Route } from "react-router-dom";
 
 import UserProvider from "./contexts/UserProvider";
 import LoginPage from './pages/LoginPage';
@@ -7,6 +7,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import RegisterPage from './pages/RegisterPage';
 import VideoPage from './pages/VideoPage';
 
+// import { Router, Route,Switch } from 'react-router';
 
 class App extends Component {
     constructor(props) {
@@ -17,10 +18,13 @@ class App extends Component {
     render() {
         return (
             <div className="app">
-                <Router>
+                <Router >
                     <UserProvider>
                         <Switch>
-                            <Route exact path="/" render={() => <LoginPage/>}></Route>
+                            <Route exact path="/" render={() => <LoginPage/>}>
+                            {/* <IndexRoute component={LoginPage} /> */}
+
+                            </Route>
                             <Route exact path="/register" render={() => <RegisterPage/>}></Route>
                             <Route exact path="/video" render={() =><VideoPage /> }></Route>
                             <Route path="*" render={() => <NotFoundPage />}></Route>
