@@ -77,8 +77,9 @@ router.post("/login", (req, res) => {
                   config.JWT_SECRET,
                   { expiresIn: "1h" }
                 );
+                res.setHeader('Set-Cookie',[`token=${token};  Path=/;HttpOnly; maxAge=86400000;SameSite=None;Secure=true;`]);
 
-                res.cookie("token", token).sendStatus(200);
+                res.sendStatus(200);
               }
             );
           } else {
