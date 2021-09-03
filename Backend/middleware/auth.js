@@ -8,6 +8,7 @@ module.exports = {
             req.query.token ||
             req.headers['x-access-token'] ||
             req.cookies.token;
+        // console.log(req)
         if (!token) {
             res.status(401).send('Unauthorized: No token provided');
         } else {

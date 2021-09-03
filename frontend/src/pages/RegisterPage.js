@@ -7,6 +7,7 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Cookies from "universal-cookie";
+import { Link } from 'react-router-dom';
 import Axios from "axios";
 import { stringify } from "querystring";
 
@@ -53,7 +54,7 @@ class RegisterPage extends Component {
       console.log(this.state);
       const response = await Axios({
         method: "POST",
-        url: `http://localhost:5000/api/user/register/`,
+        url: `http://127.0.0.1:5000/api/user/register/`,
         data: stringify({
           name: this.state.name,
           password: this.state.password,

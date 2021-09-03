@@ -1,37 +1,49 @@
-const mongoose = require('mongoose');
-
-const videoSchema = mongoose.Schema({
-    writer: {
+const mongoose = require('mongoose'),
+Schema = mongoose.Schema;
+const VideoSchema =  new Schema({
+ 
+    user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'User'
     },
-    title: {
-        type:String,
-        maxlength: 50 
+    filename:{
+        type:String
     },
-    description: {
-        type: String
+    originalname:{
+        type:String
+    },    destination:{
+        type:String
+    },    mimetype:{
+        type:String
+    },    path:{
+        type:String
     },
-    privacy: {
-        type: Number
-    },
-    filePath : {
-        type: String
-    },
-    category: String,
-    views : {
-        type: Number,
-        default: 0
-    },
-    duration: {
-        type: String
-    },
-    thumbnail: {
+    size: {
         type: String
     }
 }, {timestamps: true})
 
 
-const Video = mongoose.model('Video', videoSchema);
 
-module.exports = { Video }
+module.exports = mongoose.model('Video', VideoSchema);
+
+// video.created_at = new Date();
+// video.updated_at = new Date();
+// video.save(function (err, saved) {
+//   try {
+//     console.log(err);
+//     if (err) throw err.errmsg;
+
+//     res.status(200).json({
+//       success: true,
+//       message: "Successfully uploaded",
+//     });
+//   } catch (e) {
+//     console.log(e);
+
+//     res.status(500).json({
+//       success: false,
+//       message: "Something has gone wrong",
+//     });
+//   }
+// });

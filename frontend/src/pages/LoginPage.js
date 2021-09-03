@@ -43,7 +43,7 @@ class LoginPage extends Component {
 
     render() {
         if(this.state.redirect) {
-            return <Redirect to="/dashboard" />
+            return <Redirect to="/video" />
         }
 
         return (<>
@@ -64,7 +64,6 @@ class LoginPage extends Component {
                                     </Card.Body>
                                     <Card.Footer>
                                         <Button block variant="primary" onClick={() => context.handleLogin(this.state)}>Login</Button>
-                                        <Button block variant="secondary" onClick={() => this.redirectToRegisterPage()}>Register</Button>
                                         <Button block variant="secondary" onClick={() => this.redirectToRegisterPage()}>Register</Button>
                                     </Card.Footer>
                                 </Card>

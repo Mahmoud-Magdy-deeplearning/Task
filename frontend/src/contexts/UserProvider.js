@@ -18,32 +18,32 @@ class UserProvider extends Component {
     };
   }
 
-  componentDidMount() {
-    if (cookies.get("token") !== null) {
-      axios({
-        method: "GET",
-        url: "http://localhost:5000/api/user/",
-        headers: {
-          "X-ACCESS-TOKEN": cookies.get("token"),
-        },
-        withCredentials: true,
-      })
-        .then((response) => {
-          if (response.status === 200) {
-            this.setState({
-              isLoggedIn: true,
-              name: response.data.result,
-            });
-          } else {
-            alert(response.data.message);
-            this.props.history.push("/");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }
+  // componentDidMount() {
+  //   if (cookies.get("token") !== null) {
+  //     axios({
+  //       method: "GET",
+  //       url: "http://127.0.0.1:5000/api/user/",
+  //       headers: {
+  //         "X-ACCESS-TOKEN": cookies.get("token"),
+  //       },
+  //       withCredentials: true,
+  //     })
+  //       .then((response) => {
+  //         if (response.status === 200) {
+  //           this.setState({
+  //             isLoggedIn: true,
+  //             name: response.data.result,
+  //           });
+  //         } else {
+  //           alert(response.data.message);
+  //           this.props.history.push("/");
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }
+  // }
 
   render() {
     return (
@@ -54,20 +54,23 @@ class UserProvider extends Component {
           handleLogin: (data) => {
             axios({
               method: "POST",
-              url: "http://localhost:5000/api/user/login",
+              url: "http://127.0.0.1:5000/api/user/login",
               data: stringify(data),
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
               },
+              withCredentials: true,
+
             })
               .then((response) => {
                 if (response.status === 200) {
+                  console.log(response)
                   this.setState(
                     {
                       isLoggedIn: true,
                     },
                     () => {
-                      this.props.history.push("/dashboard");
+                      this.props.history.push("/video");
                     }
                   );
                 } else {

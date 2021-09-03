@@ -8,12 +8,12 @@ const express = require("express"),
 
 /* POST User register */
 router.post("/register", (req, res) => {
-  console.log("as");
   let newUser = new User();
 
   newUser.name = req.body.name;
   newUser.username = req.body.username;
   newUser.password = req.body.password;
+  
 
   newUser.created_at = new Date();
   newUser.updated_at = new Date();
