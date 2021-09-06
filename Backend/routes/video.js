@@ -34,8 +34,7 @@ if (token) {
   let data = jwtdecode(token);
   
 let video = new Video();
-// console.log(req)
-// console.log(token)
+
 video.user = data.id;
 video.originalname = req.file.originalname;
 video.mimetype = req.file.mimetype;
@@ -69,7 +68,6 @@ console.log(video);
 }
 
 
-  // console.log(req);
 });
 
 router.delete("/video/:id", auth.isAuthenticated, async (req, res) => {
@@ -86,6 +84,7 @@ const id = req.params.id
 console.log(Video)
 console.log(id)
 let item = await Video.findById( id);
+//check if the the item exist in User collection
 if (!item|| item.user!=data.id){ res.status(400).json({
   success: false,
   message: "unauthorized user ",
@@ -122,7 +121,6 @@ router.put("/video/:id", auth.isAuthenticated, async (req, res) => {
   if (token) {
   let data = jwtdecode(token);
   const id = req.params.id
-  // console.log(req.body)
   console.log(id)
   let item = await Video.findById( id);
   if (!item|| item.user!=data.id){ res.status(400).json({
@@ -163,13 +161,12 @@ router.get("/video", auth.isAuthenticated, async (req, res) => {
   if (token) {
   let data = jwtdecode(token);
   console.log(data.id)
-  let item = await Video.find( {"user":data.id}, "originalname filename");
-  console.log(item)
+  let items = await Video.find( {"user":data.id}, "originalname filename");
   
 
   res.status(200).json({
     success: true,
-    items:item,
+    items,
     message: "Successfully ",
   });
   }}

@@ -54,14 +54,19 @@ class RegisterPage extends Component {
       console.log(this.state);
       const response = await Axios({
         method: "POST",
-        url: `http://127.0.0.1:5000/api/user/register/`,
+        withCredentials: true ,
+        url: `https://task-dhho.onrender.com//api/user/register/`,
+
         data: stringify({
+
           name: this.state.name,
           password: this.state.password,
           username: this.state.username,
         }),
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
+          "Access-Control-Allow-Origin": "*"
+
         },
       });
       if (response.status === 200) {
@@ -137,5 +142,4 @@ class RegisterPage extends Component {
     );
   }
 }
-
 export default withRouter(RegisterPage);

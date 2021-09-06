@@ -51,24 +51,4 @@ UserSchema.methods.comparePassword = function (input, callback) {
     });
 };
 
-//video model 
-
-// const VideoSchema =  new Schema({
- 
-//     user: {
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: 'User'
-//     },
-//     filename:{
-//         type:String
-//     },
- 
-//     size: {
-//         type: String
-//     }
-// }, {timestamps: true})
-
-
-
-// module.exports = mongoose.model('Video', VideoSchema);
 module.exports = mongoose.model('User', UserSchema);

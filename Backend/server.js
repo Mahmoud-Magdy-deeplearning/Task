@@ -18,11 +18,6 @@ app.use(cors({credentials: true, origin: 'https://task-dhho.onrender.com'}));
 
 app.use( express.static( 'uploads' ) );
 
-
-app.use((req, res, next) => {
-  // res.header("Access-Control-Allow-Origin", "http://127.0.0.1:3000");
-  next();
-});
 //homePage Endpoint
 app.get("/", (req, res) => {
   res.json({ message: "API running..." });

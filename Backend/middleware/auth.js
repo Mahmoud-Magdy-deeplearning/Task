@@ -8,7 +8,6 @@ module.exports = {
             req.query.token ||
             req.headers['x-access-token'] ||
             req.cookies.token;
-        // console.log(req)
         if (!token) {
             res.status(401).send('Unauthorized: No token provided');
         } else {
@@ -21,22 +20,6 @@ module.exports = {
                     req.username = decoded.name;
                     next();
                 }
-            });
-        }
-    },
-    getUserData: function (req, res, next) {
-        const token =
-            req.body.token ||
-            req.query.token ||
-            req.headers['x-access-token'] ||
-            req.cookies.token;
-        if (!token) {
-            res.status(401).send('Unauthorized: No token provided');
-        } else {
-            jwt.verify(token, config.JWT_SECRET, function (err, decoded) {
-                req.name = decoded.name;
-                req.username = decoded.username;
-                next();
             });
         }
     }

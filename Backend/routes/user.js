@@ -101,33 +101,4 @@ router.post("/login", (req, res) => {
   );
 });
 
-/* GET Current user token */
-router.get("/verify", auth.isAuthenticated, (req, res) => {
-  res.sendStatus(200);
-});
-
-/* GET Current user profile */
-router.get("/whoami", auth.isAuthenticated, (req, res) => {
-  const token =
-    req.body.token ||
-    req.query.token ||
-    req.headers["x-access-token"] ||
-    req.cookies.token;
-
-  if (token) {
-    let data = jwtdecode(token);
-    res.status(200).json({
-      success: true,
-      message: "Successfully get user name",
-      result: data.name,
-    });
-  } else {
-    res.status(401).json({
-      success: false,
-      message: "You are not logged in",
-      result: null,
-    });
-  }
-});
-
 module.exports = router;

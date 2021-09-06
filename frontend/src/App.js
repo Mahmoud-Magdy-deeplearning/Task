@@ -7,7 +7,6 @@ import NotFoundPage from './pages/NotFoundPage';
 import RegisterPage from './pages/RegisterPage';
 import VideoPage from './pages/VideoPage';
 
-// import { Router, Route,Switch } from 'react-router';
 
 class App extends Component {
     constructor(props) {
@@ -22,8 +21,6 @@ class App extends Component {
                     <UserProvider>
                         <Switch>
                             <Route exact path="/" render={() => <LoginPage/>}>
-                            {/* <IndexRoute component={LoginPage} /> */}
-
                             </Route>
                             <Route exact path="/register" render={() => <RegisterPage/>}></Route>
                             <Route exact path="/video" render={() =><VideoPage /> }></Route>

@@ -3,15 +3,6 @@ import axios from 'axios';
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
-// if(cookies.get('token')) {
-// axios.interceptors.request.use(function (config) {
-// config.headers.authorization = `Bearer ${cookies.get('token')}`
-// 	return config;
-//   }, function (error) {
-//     // Do something with request error
-//     return Promise.reject(error);
-//   });
-// }
 export default class UploadComponent extends Component {
 
 
@@ -28,7 +19,7 @@ async a(){
 console.log("wwwwwwwwwwwww")
 var data = await axios({
 method: "GET",
-url: "http://127.0.0.1:5000/api/video",
+url: "https://task-dhho.onrender.com//api/video",
 withCredentials: true,
 
 })	
@@ -50,7 +41,7 @@ handleChange(e) {
  delete = async(id) => {
 	axios({
 		method: "DELETE",
-		url: "http://127.0.0.1:5000/api/video/"+id,
+		url: "https://task-dhho.onrender.com//api/video/"+id,
 		withCredentials: true,
 	  }).then(res=>{
 		console.log(res)
