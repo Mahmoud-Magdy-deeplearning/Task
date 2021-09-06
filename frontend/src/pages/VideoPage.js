@@ -41,7 +41,7 @@ handleChange(e) {
  delete = async(id) => {
 	axios({
 		method: "DELETE",
-		url: "https://task-dhho.onrender.com/api/video/"+id,
+		url: "https://backend-oi5c.onrender.com/api/video/"+id,
 		withCredentials: true,
 	  }).then(res=>{
 		console.log(res)
