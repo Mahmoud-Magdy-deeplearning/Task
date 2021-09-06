@@ -55,7 +55,7 @@ class RegisterPage extends Component {
       const response = await Axios({
         method: "POST",
         withCredentials: true ,
-        url: `https://task-dhho.onrender.com//api/user/register/`,
+        url: `https://backend-oi5c.onrender.com/api/user/register/`,
 
         data: stringify({
 
@@ -142,4 +142,5 @@ class RegisterPage extends Component {
     );
   }
 }
+
 export default withRouter(RegisterPage);

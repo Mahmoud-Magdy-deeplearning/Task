@@ -19,7 +19,7 @@ async a(){
 console.log("wwwwwwwwwwwww")
 var data = await axios({
 method: "GET",
-url: "https://task-dhho.onrender.com//api/video",
+url: "https://backend-oi5c.onrender.com/api/video",
 withCredentials: true,
 
 })	
@@ -41,7 +41,7 @@ handleChange(e) {
  delete = async(id) => {
 	axios({
 		method: "DELETE",
-		url: "https://task-dhho.onrender.com//api/video/"+id,
+		url: "https://task-dhho.onrender.com/api/video/"+id,
 		withCredentials: true,
 	  }).then(res=>{
 		console.log(res)
@@ -57,7 +57,7 @@ editSet = (id) => {
 edit = async(id) => {
 	axios({
 		method: "PUT",
-		url: "http://127.0.0.1:5000/api/video/"+id,	data: {
+		url: "https://backend-oi5c.onrender.com/api/video/"+id,	data: {
 			"originalname":this.state.name
 		},
 		withCredentials: true,
@@ -81,7 +81,7 @@ submit = event => {
 	 
 	axios({
 		method: "POST",
-		url: "http://127.0.0.1:5000/api/video",
+		url: "https://backend-oi5c.onrender.com/api/video",
 		data: fd,
 		withCredentials: true,
 
@@ -98,7 +98,7 @@ submit = event => {
 	<input type="file" onChange={this.upload}/>
 	<button onClick={this.submit}>submit</button>
 
-	{this.state.items.map((item)=>(<div key={item._id}><a href={"http://127.0.0.1:5000/"+item.filename} target="_blank">{item.originalname} </a> 
+	{this.state.items.map((item)=>(<div key={item._id}><a href={"https://backend-oi5c.onrender.com/"+item.filename} target="_blank">{item.originalname} </a> 
 	{item._id==this.state.edit?(<>
     <input type="text" name="text"  value={this.state.name} onChange={(e) => this.handleChange(e)}></input>
 	<button onClick={()=>this.edit(item._id)}>edit</button></>):(
